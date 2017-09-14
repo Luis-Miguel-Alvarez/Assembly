@@ -21,7 +21,7 @@ main:
 while: 
     cmp r0, #10
     beq exit
-    bl printf
+    //bl printf
     add r0, #1 
     b while
     
