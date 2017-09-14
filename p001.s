@@ -20,7 +20,7 @@ x: .asciz "0"
 main:
     
     push {r9, lr}
-    data_seg .reg r9 
+    data_seg .req r9 
     ldr data_seg, data_seg_address
     
     mov r0, x
