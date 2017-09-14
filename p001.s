@@ -6,9 +6,9 @@
 
 .data
 
-nine: .asciz 0
-littleA: .asciz 97
-BigA: .asciz 65
+nine: .asciz "0"
+littleA: .asciz "a"
+BigA: .asciz "A"
 
 .text
 
@@ -16,11 +16,11 @@ BigA: .asciz 65
 
 main:
     push {lr} 
-    ldr r0, #0
+    mov r0, #0
 
 while: 
     cmp r0, #10
-    breq exit
+    beq exit
     bl printf
     add r0, #1 
     b while
