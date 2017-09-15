@@ -35,7 +35,7 @@ while:
     
     
     mov r1, r0
-    add r0, data_seg, #offset_of_seg
+    add r0, data_seg, #offset_of_str
     bl printf
 
     add r0, r0, #1
