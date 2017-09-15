@@ -27,7 +27,7 @@ while:  ldr     r0, [data_seg, #offset_of_x]
         ldr     r1, [data_seg, #offset_of_comp]
         cmp     r0, r1
         
-        ble done
+        bge done
 
         // printf(str, x) - str is address of str; x is value of x
         add     r0, data_seg, #offset_of_str
