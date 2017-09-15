@@ -7,6 +7,7 @@
 .data
 //base:
 //x: .word 0
+.align 1
 str: .asciz "%c"
 //.set offset_of_x, x - base
 //.set offset_of_str, str - base
@@ -33,14 +34,14 @@ while:
     cmp r0, #10
     beq exit
     
-    
+    mov r8, r0
     mov r1, r0
     ldr r0, =str
     //ldr r0, [data_seg, #offset_of_x]
     //add r0, data_seg, #offset_of_str
     bl printf
     
-    mov r0, r1
+    mov r0, r8
     //ldr r0, [data_seg, #offset_of_x]
     add r0, r0, #1
     //str r0, [data_seg, #offset_of_x]  
