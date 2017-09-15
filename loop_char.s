@@ -40,11 +40,11 @@ while:  ldr     r0, [data_seg, #offset_of_x]
         
 setLoop:
         cmp r1, #58
-        bge setUpper
+        beq setUpper
         cmp r1, #91
-        bge setLower
+        beq setLower
         cmp r1, #123
-        bge done
+        beq done
         
 setNum:
         add r0, data_seg, #offset_of_str
