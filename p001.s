@@ -7,7 +7,7 @@
 .data
 //base:
 //x: .word 0
-.align 1
+.align 2
 str: .asciz "%c"
 //.set offset_of_x, x - base
 //.set offset_of_str, str - base
