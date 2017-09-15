@@ -7,7 +7,9 @@
 .data
 base:
 x: .word 0
+str: .asciz "%c"
 .set offset_of_x, x - base
+.set offset_of_str, str - base
 
 //nine: .asciz "0"
 //littleA: .asciz "a"
@@ -31,7 +33,11 @@ while:
     cmp r0, #10
     beq exit
     
+    
+    mov r1, r0
+    add r0, data_seg, #offset_of_seg
     bl printf
+
     add r0, r0, #1
     str r0, [data_seg, #offset_of_x]  
     b while
