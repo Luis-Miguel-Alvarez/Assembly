@@ -6,7 +6,7 @@
 
 .data
 base:
-x: .asciz "0"
+x: .word 0
 .set offset_of_x, x - base
 
 //nine: .asciz "0"
@@ -23,7 +23,7 @@ main:
     data_seg .req r9 
     ldr data_seg, data_seg_address
     
-    mov r0, x
+    mov r0, #0
     str r0, [data_seg, #offset_of_x]
 
 while: 
