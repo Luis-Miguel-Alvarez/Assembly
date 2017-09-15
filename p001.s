@@ -31,7 +31,7 @@ main:
 
 while: 
     ldr r0, [data_seg, #offset_of_x]
-    cmp r0, #9
+    cmp r0, #99
     ble exit
     
     add r0, data_seg, #offset_of_str
