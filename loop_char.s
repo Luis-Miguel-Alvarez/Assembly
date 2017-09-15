@@ -9,7 +9,7 @@
         .align 2
 base:
 x:      .word 0
-str:    .asciz "Ch: %c\n"
+str:    .asciz "\n%c "
 
         .set   offset_of_x, x - base
         .set    offset_of_str, str - base
@@ -21,13 +21,11 @@ main:
         data_seg .req r9 // set data_seg as an alias for the register r9
         ldr     data_seg, data_seg_address
 
-        // x = 13
         mov     r0, #65
-	str     r0, [data_seg, #offset_of_x]
+	    str     r0, [data_seg, #offset_of_x]
 
-        // while (x <= 67) {
 while:  ldr     r0, [data_seg, #offset_of_x]
-        cmp     r0, #69
+        cmp     r0, #90
         bgt     done
 
         // printf(str, x) - str is address of str; x is value of x
