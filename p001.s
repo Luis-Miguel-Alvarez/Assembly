@@ -8,7 +8,7 @@
 .align 2
 base:
 x: .word 0
-str: .asciz "A number %c"
+str: .asciz "A number %d"
 .set offset_of_x, x - base
 .set offset_of_str, str - base
 
@@ -19,7 +19,6 @@ str: .asciz "A number %c"
 .text
 
 .global main
-
 main:
     
     push {r9, lr}
