@@ -20,14 +20,12 @@ main:
         data_seg .req r9 // set data_seg as an alias for the register r9
         ldr     data_seg, data_seg_address
         b setNum
-        //b setLower
 
 
 while:  ldr     r0, [data_seg, #offset_of_x]
         ldr     r1, [data_seg, #offset_of_comp]
         cmp     r0, r1
-        
-        bge done
+        bge     setLoop
 
         // printf(str, x) - str is address of str; x is value of x
         add     r0, data_seg, #offset_of_str
@@ -40,25 +38,32 @@ while:  ldr     r0, [data_seg, #offset_of_x]
 
         b       while
         
+setLoop:
+        cmp r1, #58
+        bge setUpper
+        cmp r1, #91
+        b done
+        
 setNum:
         add r0, data_seg, #offset_of_str
         mov r1, #10
         bl printf
         mov r0, #48
         str r0, [data_seg, #offset_of_x]
-        mov r1, #57
+        mov r1, #58
         str r1, [data_seg, #offset_of_comp]
         b while    
         
-/*setLower:
+setUpper:
         add r0, data_seg, #offset_of_str
         mov r1, #10
         bl printf
-        str r1, [data_seg, #offset_of_comp]
-        mov r0, #48
+        mov r0, #65
         str r0, [data_seg, #offset_of_x]
+        mov r0, #91
+        str r0, [data_seg, #offset_of_comp]
         b while 
-*/
+
 
 done:
         .unreq   data_seg
