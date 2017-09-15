@@ -35,7 +35,8 @@ while:
     
     
     mov r1, r0
-    add r0, data_seg, #offset_of_str
+    lrd r0, str
+    //add r0, data_seg, #offset_of_str
     bl printf
     
     ldr r0, [data_seg, #offset_of_x]
