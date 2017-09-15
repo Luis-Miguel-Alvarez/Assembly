@@ -42,7 +42,9 @@ setLoop:
         cmp r1, #58
         bge setUpper
         cmp r1, #91
-        b done
+        bge setLower
+        cmp r1, #123
+        bge done
         
 setNum:
         add r0, data_seg, #offset_of_str
@@ -61,6 +63,16 @@ setUpper:
         mov r0, #65
         str r0, [data_seg, #offset_of_x]
         mov r0, #91
+        str r0, [data_seg, #offset_of_comp]
+        b while 
+        
+setLower:
+        add r0, data_seg, #offset_of_str
+        mov r1, #10
+        bl printf
+        mov r0, #97
+        str r0, [data_seg, #offset_of_x]
+        mov r0, #123
         str r0, [data_seg, #offset_of_comp]
         b while 
 
