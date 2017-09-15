@@ -5,9 +5,9 @@
 **/
 
 .data
+.align 2
 base:
 x: .word 0
-//.align 2
 str: .asciz "A number %c"
 .set offset_of_x, x - base
 .set offset_of_str, str - base
