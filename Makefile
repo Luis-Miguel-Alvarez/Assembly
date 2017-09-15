@@ -11,7 +11,7 @@ BUILD = build
 # Base source directory
 SOURCE = source
 
-TARGET = $(BUILD)/first
+TARGET = $(BUILD)/luis-p001
 
 # The name of the assembler listing file to generate.
 LIST = $(TARGET).list
