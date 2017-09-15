@@ -35,7 +35,7 @@ while:
     
     
     mov r1, r0
-    ldr r0, =str
+    ldr r0, [data_seg, #offset_of_x]
     //add r0, data_seg, #offset_of_str
     bl printf
     
