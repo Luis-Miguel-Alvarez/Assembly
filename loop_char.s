@@ -40,7 +40,7 @@ while:  ldr     r0, [data_seg, #offset_of_x]
         
 setNum:
         add r0, data_seg, #offset_of_str
-        mov r1, "\n The digits"
+        mov r1, #10
         bl printf
         mov r0, #48
         str r0, [data_seg, #offset_of_x]
