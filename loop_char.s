@@ -5,12 +5,14 @@
         .align 2
 base:
 x:      .word 0
+comp:   .word 0
 
 str:    .asciz "%c "
 
         .set   offset_of_x, x - base
-        .set    offset_of_str, str - base
-
+        .set   offset_of_str, str - base
+        .set   offset_of_comp, comp - base
+        
         .text
         .global main
 main:
@@ -18,14 +20,14 @@ main:
         data_seg .req r9 // set data_seg as an alias for the register r9
         ldr     data_seg, data_seg_address
         b setNum
-        //mov     r0, #48
-	    //str     r0, [data_seg, #offset_of_x]
+        //b setLower
+
 
 while:  ldr     r0, [data_seg, #offset_of_x]
-        cmp     r0, #57
+        ldr     r1, [data_seg, #offset_of_comp]
+        cmp     r0, r1
         
-        
-        bgt     setLower
+        ble done
 
         // printf(str, x) - str is address of str; x is value of x
         add     r0, data_seg, #offset_of_str
@@ -44,12 +46,19 @@ setNum:
         bl printf
         mov r0, #48
         str r0, [data_seg, #offset_of_x]
+        mov r1, #57
+        str r1, [data_seg, #offset_of_comp]
         b while    
         
-setLower:
-        //mov r0 "\n"
-        //bl printf
-        b done
+/*setLower:
+        add r0, data_seg, #offset_of_str
+        mov r1, #10
+        bl printf
+        str r1, [data_seg, #offset_of_comp]
+        mov r0, #48
+        str r0, [data_seg, #offset_of_x]
+        b while 
+*/
 
 done:
         .unreq   data_seg
