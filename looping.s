@@ -11,7 +11,7 @@ base:
 //Believe this is for setting up the loop counter.
 counter: .word 0 
 //%d is where the variable will be printed "d" indicates decimal
-text: .asciz "This has been printed out %d times." 
+text: .asciz "This has been printed out %d times. \n" 
 
 //Paired with last line somehow. Helps keep track of where our int and
 //string are being stored.
@@ -33,7 +33,7 @@ while:
 ldr r0, [data_seg, #offset_counter]
 
 //Compare int thats in r0 with 5. if greater of equal jump to exit
-cmp r0, #5
+cmp r0, #6
 bge exit
 
 //otherwise print out the string
