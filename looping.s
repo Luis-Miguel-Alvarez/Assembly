@@ -20,6 +20,7 @@ text: .asciz "This has been printed out %d times."
 
 
 .text
+.global main
 
 main: 
 
