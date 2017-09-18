@@ -9,7 +9,7 @@
 
 base:
 //Believe this is for setting up the loop counter.
-counter: .word 3 
+counter: .word 0 
 //%d is where the variable will be printed "d" indicates decimal
 text: .asciz "This has been printed out %d times. \n" 
 
