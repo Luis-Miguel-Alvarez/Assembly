@@ -16,7 +16,7 @@ text: .asciz "This has been printed out %d times."
 //Paired with last line somehow. Helps keep track of where our int and
 //string are being stored.
 .set offset_counter, counter - base
-,set offset_text, text - base
+.set offset_text, text - base
 
 
 .text
@@ -42,9 +42,9 @@ add r0, data_seg, #offset_text //why add and not ldr here??
 bl printf
 
 //we printed but all registers are messed up after call to printf so fix 'em
-ldr r0, [data_seg #offset_counter]
+ldr r0, [data_seg, #offset_counter]
 add r0, r0, #1
-str r0, [data_seg #offset_counter]
+str r0, [data_seg, #offset_counter]
 
 b while
 

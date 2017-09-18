@@ -16,7 +16,7 @@ text: .asciz "This has been printed out %d times."
 //Paired with last line somehow. Helps keep track of where our int and
 //string are being stored.
 .set offset_counter, counter - base
-,set offset_text, text - base
+.set offset_text, text - base
 
 
 .text
