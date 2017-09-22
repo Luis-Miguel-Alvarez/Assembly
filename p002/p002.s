@@ -2,6 +2,11 @@
  * Assignment II
  * CIS 356
  */
+ 
+ //Inital print test worked...sorta only "abc" printed out zeros which is fine 
+ //but remember print f can only take 4 peramaters so break it up to fix it.
+ 
+ 
 
 //Program goes through nested loops to print out a truth table
  
