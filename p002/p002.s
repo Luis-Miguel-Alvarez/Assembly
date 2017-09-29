@@ -18,12 +18,14 @@ a:     .word 0
 b:     .word 0
 c:     .word 0
 top:   .asciz "| a | b | c | a&b&c | a|b|c | a|b&c |\n"
-values: .asciz "| %d | %d | %d |   %d   |   %d   |   %d   |\n"
+values: .asciz "| %d | %d | %d "
+results: .asciz "|   %d   |   %d   |   %d   |\n"
        .set offset_a , a - base  
        .set offset_b , b - base
        .set offset_c , c - base
        .set offset_top , top - base
        .set offset_values , values - base
+       .set offset_results , results - base
        
 .text
 .global main
@@ -51,6 +53,7 @@ loopC:
 printLoop:
        add r0, data_seg, #offset_values
        bl printf
+       add r0, data_seg, #offset_result
        
 exit:
     .unreq data_seg
