@@ -53,7 +53,7 @@ loopC:
 printLoop:
        add r0, data_seg, #offset_values
        bl printf
-       add r0, data_seg, #offset_result
+       add r0, data_seg, #offset_results
        
 exit:
     .unreq data_seg
