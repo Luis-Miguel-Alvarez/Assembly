@@ -70,16 +70,23 @@ loopB:
 loopC:
        ldr r3, [data_seg, #offset_c]
        cmp r3, #2
-       bxeq lr
+       bneq elseC
        
+       bx lr
+
+elseC:
        bl printLoop
-       
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
        b loopC
        
 printLoop:
        add r0, data_seg, #offset_values
+       
+       str r1, [data_seg, #offset_a]
+       str r2, [data_seg, #offset_b]
+       str r3, [data_seg, #offset_c]
+       
        bl printf
        
        ldr r1, [data_seg, #offset_a]
