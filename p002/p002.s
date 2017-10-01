@@ -61,7 +61,7 @@ loopC:
        
        push {r1, r2, r3}
        bl printLoop
-       pop {r1, r2, r3}
+       
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
@@ -73,7 +73,7 @@ printLoop:
        bl printf
        add r0, data_seg, #offset_results
        bl printf 
-       
+       pop {r1, r2, r3}
        bx lr
        
 exit:
