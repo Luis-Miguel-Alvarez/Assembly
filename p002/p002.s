@@ -54,6 +54,7 @@ printLoop:
        add r0, data_seg, #offset_values
        bl printf
        add r0, data_seg, #offset_results
+       bl printf 
        
 exit:
     .unreq data_seg
