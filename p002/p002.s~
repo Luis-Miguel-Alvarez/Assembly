@@ -35,10 +35,16 @@ main:
        data_seg .req r9
        ldr data_seg, data_seg_address
        
+       add r0, data_seg, #offset_top
+       bl printf
+       
 loopA:
-       ldr r1, [data_seg, #offset_a]
-       cmp r1, #2
-       bne loopB
+       ldr r0, [data_seg, #offset_a]
+       cmp r0, #2
+       beq loopB
+       add r0, r0, #1
+       str r0 [data_seg, #off_set_a]
+       b loopA
        
 loopB:
        ldr r2, [data_seg, #offset_b]
@@ -54,6 +60,7 @@ printLoop:
        add r0, data_seg, #offset_values
        bl printf
        add r0, data_seg, #offset_results
+       bl printf 
        
 exit:
     .unreq data_seg
