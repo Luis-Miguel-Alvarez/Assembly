@@ -39,27 +39,28 @@ main:
        bl printf
        
 loopA:
-       ldr r0, [data_seg, #offset_a]
-       cmp r0, #2
+       ldr r1, [data_seg, #offset_a]
+       cmp r1, #2
        beq loopB
-       add r0, r0, #1
-       str r0, [data_seg, #offset_a]
+       add r1, r1, #1
+       str r1, [data_seg, #offset_a]
        b loopA
        
 loopB:
-       ldr r0, [data_seg, #offset_b]
-       cmp r0, #2
+       ldr r2, [data_seg, #offset_b]
+       cmp r2, #2
        beq loopC
-       add r0, r0, #1
-       str r0, [data_seg, #offset_b]
+       add r2, r2, #1
+       str r2, [data_seg, #offset_b]
        b loopB
 
 loopC:
-       ldr r0, [data_seg, #offset_c]
-       cmp r0, #2
-       beq printLoop
-       add r0, r0, #1
-       str r0, [data_seg, #offset_c]
+       ldr r3, [data_seg, #offset_c]
+       cmp r3, #2
+       beq exit
+       bl printLoop
+       add r3, r3, #1
+       str r3, [data_seg, #offset_c]
        b loopC
        
 printLoop:
