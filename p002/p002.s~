@@ -75,7 +75,13 @@ loopC:
        bx lr
 
 elseC:
-       bl printLoop
+       //bl printLoop
+       add r0, data_seg, #offset_values
+       bl printf
+       
+       
+       
+       
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
        b loopC
