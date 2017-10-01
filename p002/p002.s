@@ -76,9 +76,9 @@ loopC:
        add r0, data_seg, #offset_values
        bl printf
        
-       //ldr r1, [data_seg, #offset_a]
-       //ldr r2, [data_seg, #offset_b]
-       //ldr r3, [data_seg, #offset_c]
+       ldr r1, [data_seg, #offset_a]
+       ldr r2, [data_seg, #offset_b]
+       ldr r3, [data_seg, #offset_c]
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
