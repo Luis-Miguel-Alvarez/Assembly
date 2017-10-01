@@ -70,7 +70,7 @@ loopB:
 loopC:
        ldr r3, [data_seg, #offset_c]
        cmp r3, #2
-       bneq elseC
+       bne elseC
        
        bx lr
 
