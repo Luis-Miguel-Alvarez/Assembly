@@ -41,7 +41,7 @@ main:
 loopA:
        ldr r1, [data_seg, #offset_a]
        cmp r1, #2
-       beq loopB
+       bne loopB
        add r1, r1, #1
        str r1, [data_seg, #offset_a]
        b loopA
@@ -49,7 +49,7 @@ loopA:
 loopB:
        ldr r2, [data_seg, #offset_b]
        cmp r2, #2
-       beq loopC
+       bne loopC
        add r2, r2, #1
        str r2, [data_seg, #offset_b]
        b loopB
@@ -58,15 +58,17 @@ loopC:
        ldr r3, [data_seg, #offset_c]
        cmp r3, #2
        beq exit
-       bl printLoop
+       b printLoop
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
        b loopC
        
 printLoop:
+       push {r1, r2, r3}
        add r0, data_seg, #offset_values
        bl printf
        add r0, data_seg, #offset_results
+       pop {r1, r2, r3}
        bl printf 
        
 exit:
