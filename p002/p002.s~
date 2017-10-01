@@ -58,7 +58,7 @@ loopC:
        ldr r3, [data_seg, #offset_c]
        cmp r3, #2
        beq exit
-       bl printLoop
+       b printLoop
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
        b loopC
