@@ -70,7 +70,7 @@ printLoop:
        add r0, data_seg, #offset_results
        bl printf 
        pop {r1, r2, r3}
-       bl xr
+       bx lr
        
 exit:
     .unreq data_seg
