@@ -55,7 +55,7 @@ loopA:
 loopB:
        ldr r2, [data_seg, #offset_b]
        cmp r2, #2
-       bx lr 
+       bxeq lr 
  
        bl loopC
        
@@ -69,7 +69,9 @@ loopB:
 
 loopC:
        ldr r3, [data_seg, #offset_c]
-       cmp r3, #2   
+       cmp r3, #2
+       bxeq lr
+       
        bl printLoop
        
        add r3, r3, #1
