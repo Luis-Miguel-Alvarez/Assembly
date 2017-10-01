@@ -34,46 +34,56 @@ main:
        push {r9, lr}
        data_seg .req r9
        ldr data_seg, data_seg_address
-       
        add r0, data_seg, #offset_top
        bl printf
        
 loopA:
        ldr r1, [data_seg, #offset_a]
        cmp r1, #2
-       bne loopB
+       beq exit
+       
+       bl loopB
+       
        add r1, r1, #1
        str r1, [data_seg, #offset_a]
+       mov r2, #0
+       str r2, [data_seg, #offset_b]
+       
        b loopA
+
        
 loopB:
        ldr r2, [data_seg, #offset_b]
-       cmp r2, #2
-       bne loopC
+       cmp r2 #2
+       bx lr 
+ 
+       bl loopC
+       
        add r2, r2, #1
        str r2, [data_seg, #offset_b]
+       mov r3, #0
+       str r3, [data_seg, #offset_c]
+       
        b loopB
+
 
 loopC:
        ldr r3, [data_seg, #offset_c]
-       cmp r3, #2
-       beq exit
-       
-       push {r1, r2, r3}
+       cmp r3, #2   
        bl printLoop
-       
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
        b loopC
        
 printLoop:
-       
        add r0, data_seg, #offset_values
        bl printf
-       //add r0, data_seg, #offset_results
-       //bl printf 
-       pop {r1, r2, r3}
+       
+       ldr r1, [data_seg, #offset_a]
+       ldr r2, [data_seg, #offset_b]
+       ldr r3, [data_seg, #offset_c]
+       
        bx lr
        
 exit:
