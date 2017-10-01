@@ -54,7 +54,7 @@ loopA:
        
 loopB:
        ldr r2, [data_seg, #offset_b]
-       cmp r2 #2
+       cmp r2, #2
        bx lr 
  
        bl loopC
