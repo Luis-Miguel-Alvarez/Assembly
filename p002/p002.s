@@ -72,19 +72,13 @@ loopC:
        cmp r3, #2
        bxeq lr
        
-       //bl printLoop
-       add r0, data_seg, #offset_values
-       bl printf
-       
-       ldr r1, [data_seg, #offset_a]
-       ldr r2, [data_seg, #offset_b]
-       ldr r3, [data_seg, #offset_c]
+       bl printLoop
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
        b loopC
        
-/*printLoop:
+printLoop:
        add r0, data_seg, #offset_values
        bl printf
        
@@ -93,7 +87,7 @@ loopC:
        ldr r3, [data_seg, #offset_c]
        
        bx lr
-  */     
+     
 exit:
     .unreq data_seg
     pop {r9, lr}
