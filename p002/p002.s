@@ -43,7 +43,7 @@ loopA:
        cmp r0, #2
        beq loopB
        add r0, r0, #1
-       str r0 [data_seg, #off_set_a]
+       str r0, [data_seg, #off_set_a]
        b loopA
        
 loopB:
@@ -51,7 +51,7 @@ loopB:
        cmp r0, #2
        beq loopC
        add r0, r0, #1
-       str r0 [data_seg, #off_set_b]
+       str r0, [data_seg, #off_set_b]
        b loopB
 
 loopC:
@@ -59,7 +59,7 @@ loopC:
        cmp r0, #2
        beq printLoop
        add r0, r0, #1
-       str r0 [data_seg, #off_set_c]
+       str r0, [data_seg, #off_set_c]
        b loopC
        
 printLoop:
