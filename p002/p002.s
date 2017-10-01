@@ -69,7 +69,7 @@ loopB:
 
 loopC:
        ldr r3, [data_seg, #offset_c]
-       cmp r3, #3
+       cmp r3, #2
        bxeq lr
        
        //bl printLoop
