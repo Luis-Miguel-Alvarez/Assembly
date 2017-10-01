@@ -71,8 +71,8 @@ printLoop:
        
        add r0, data_seg, #offset_values
        bl printf
-       add r0, data_seg, #offset_results
-       bl printf 
+       //add r0, data_seg, #offset_results
+       //bl printf 
        pop {r1, r2, r3}
        bx lr
        
