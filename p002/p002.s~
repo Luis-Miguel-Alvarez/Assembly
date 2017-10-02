@@ -113,7 +113,7 @@ printLoop:
        bx lr
        
 printResults:
-       add r0, data_seg #offset_results
+       add r0, data_seg, #offset_results
        bl printf
        
     
