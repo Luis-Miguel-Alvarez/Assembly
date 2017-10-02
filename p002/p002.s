@@ -57,11 +57,12 @@ loopA:
 loopB:
        ldr r2, [data_seg, #offset_b]
        cmp r2, #2
-       bxeq lr 
+       bne elseB
+       bx lr 
  
        //bl loopC
        
-       
+elseB:       
        add r0, data_seg, #offset_values
        bl printf
        
@@ -74,7 +75,7 @@ loopB:
        
        b loopB
 
-
+/*
 loopC:
        ldr r3, [data_seg, #offset_c]
        //mov r3, #2
@@ -115,7 +116,7 @@ printLoop:
        ldr r3, [data_seg, #offset_c]
        
        bx lr
-     
+     */
 exit:
     .unreq data_seg
     pop {r9, lr}
