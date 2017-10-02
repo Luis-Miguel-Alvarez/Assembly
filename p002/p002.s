@@ -81,7 +81,14 @@ loopC:
        ldr r2, [data_seg, #offset_b]
        ldr r3, [data_seg, #offset_c]
        
-       //bl doWork
+       bl doWork
+       
+       add r0, data_seg, #offset_results
+       bl printf
+       ldr r1, [data_seg, #offset_a]
+       ldr r2, [data_seg, #offset_b]
+       ldr r3, [data_seg, #offset_c]
+       
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
@@ -90,11 +97,9 @@ loopC:
        b loopC
        
 doWork:
-       add r0, data_seg, #offset_results
        mov r1, #0
        mov r2, #0
        mov r3, #0
-       bl printf
        bx lr
        
     
