@@ -64,11 +64,11 @@ loopB:
        mov r3, #0
        str r3, [data_seg, #offset_c]
        
-       b loopC
+       b loopB
 
 
 loopC:
-       ldr r3, [data_seg, #offset_c]
+       ldr r3, #2
        cmp r3, #2
        bne elseC
        
