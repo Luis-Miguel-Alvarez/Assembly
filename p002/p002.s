@@ -73,8 +73,8 @@ loopC:
        ldr r3, [data_seg, #offset_c]
        cmp r3, #2
        bne elseC
-       
-       bx lr
+       b exit
+       //bx lr
 
 elseC:
        //bl printLoop
