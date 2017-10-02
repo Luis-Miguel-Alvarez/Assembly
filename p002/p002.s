@@ -78,7 +78,8 @@ elseB:
        str r2, [data_seg, #offset_b]
        //mov r3, #0
        //str r3, [data_seg, #offset_c]
-       
+       cmp r2, #2
+       beq loopA
        b loopB
 
 /*

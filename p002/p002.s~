@@ -46,8 +46,8 @@ loopA:
        
        add r1, r1, #1
        str r1, [data_seg, #offset_a]
-       mov r2, #0
-       str r2, [data_seg, #offset_b]
+       //mov r2, #0
+       //str r2, [data_seg, #offset_b]
        //mov r3, #0
        //str r3, [data_seg, #offset_c]
        
