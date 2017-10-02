@@ -6,7 +6,6 @@
  //Inital print test worked...sorta only "abc" printed out zeros which is fine 
  //but remember print f can only take 4 peramaters so break it up to fix it.
  
- 
 
 //Program goes through nested loops to print out a truth table
  
@@ -75,17 +74,14 @@ loopC:
        cmp r3, #2
        bxeq lr
       
-       bl printValues
        
+       add r0, data_seg, #offset_values
+       bl printf
+       ldr r1, [data_seg, #offset_a]
+       ldr r2, [data_seg, #offset_b]
+       ldr r3, [data_seg, #offset_c]
        
-       //add r0, data_seg, #offset_values
-       //bl printf
-       //ldr r1, [data_seg, #offset_a]
-       //ldr r2, [data_seg, #offset_b]
-       //ldr r3, [data_seg, #offset_c]
-       
-       
-            
+       bl doWork
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
@@ -93,19 +89,13 @@ loopC:
        beq loopB
        b loopC
        
-printValues:
-       add r0, data_seg, #offset_values       
-       bl printf
+doWork:
        add r0, data_seg, #offset_results
-       ldr r1, [data_seg, #offset_a]
-       ldr r2, [data_seg, #offset_b]
-       ldr r3, [data_seg, #offset_c]
-      
+       mov r1, #0
+       mov r2, #0
+       mov r3, #0
+       bl printf
        bx lr
-       
-printResults:
-       add r0, data_seg, #offset_results
-       bl printf
        
     
 exit:
