@@ -76,13 +76,15 @@ loopC:
        bxeq lr
       
        //bl printValues
-       //bl printResults
+       
        
        add r0, data_seg, #offset_values
        bl printf
+       bl printResults
        ldr r1, [data_seg, #offset_a]
        ldr r2, [data_seg, #offset_b]
        ldr r3, [data_seg, #offset_c]
+       
        
             
        
