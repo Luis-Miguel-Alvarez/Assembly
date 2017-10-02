@@ -48,8 +48,8 @@ loopA:
        str r1, [data_seg, #offset_a]
        mov r2, #0
        str r2, [data_seg, #offset_b]
-       mov r3, #0
-       str r3, [data_seg, #offset_c]
+       //mov r3, #0
+       //str r3, [data_seg, #offset_c]
        
        b loopA
 
@@ -59,18 +59,18 @@ loopB:
        cmp r2, #2
        bxeq lr 
  
-       bl loopC
+       //bl loopC
        
        
-       add r0, data_seg, #offset_top
+       add r0, data_seg, #offset_values
        bl printf
        
        
        
        add r2, r2, #1
        str r2, [data_seg, #offset_b]
-       mov r3, #0
-       str r3, [data_seg, #offset_c]
+       //mov r3, #0
+       //str r3, [data_seg, #offset_c]
        
        b loopB
 

@@ -62,7 +62,7 @@ loopB:
        bl loopC
        
        
-              add r0, data_seg, #offset_top
+       add r0, data_seg, #offset_values
        bl printf
        
        
