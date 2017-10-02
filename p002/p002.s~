@@ -64,8 +64,8 @@ loopB:
        
 elseB:       
        add r0, data_seg, #offset_values
-       str r1, [data_seg, #offset_a]
-       str r2, [data_seg, #offset_b]
+       //str r1, [data_seg, #offset_a]
+       //str r2, [data_seg, #offset_b]
        
        bl printf
        
