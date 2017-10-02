@@ -17,7 +17,7 @@ a:     .word 0
 b:     .word 0
 c:     .word 0
 top:   .asciz "| a | b | c | a&b&c | a|b|c | a|b&c |\n"
-values: .asciz "| %d | %d | %d \n"
+values: .asciz "| %d | %d | %d "
 results: .asciz "|   %d   |   %d   |   %d   |\n"
        .set offset_a , a - base  
        .set offset_b , b - base
