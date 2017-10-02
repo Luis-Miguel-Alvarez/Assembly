@@ -3,20 +3,18 @@
  * CIS 356
  */
  
- //Inital print test worked...sorta only "abc" printed out zeros which is fine 
- //but remember print f can only take 4 peramaters so break it up to fix it.
- 
 
 //Program goes through nested loops to print out a truth table
  
+ //Data segment sets up storage of strings and variables for neat printing
 .data
        .align 2
-
 base:
 a:     .word 0
 b:     .word 0
 c:     .word 0
 top:   .asciz "| a | b | c | a&b&c | a|b|c | a|b&c |\n"
+//Row broken up into two so we work in our contraint of 4 parameters for printf
 values: .asciz "| %d | %d | %d "
 results: .asciz "|   %d   |   %d   |   %d   |\n"
        .set offset_a , a - base  
@@ -29,13 +27,16 @@ results: .asciz "|   %d   |   %d   |   %d   |\n"
 .text
 .global main
 
+//Main prints out top of table for labeling
 main:
        push {r9, lr}
        data_seg .req r9
        ldr data_seg, data_seg_address
        add r0, data_seg, #offset_top
        bl printf
-       
+ 
+//Loops call and return to each other for incrementing each variable at
+//the right instances
 loopA:
        ldr r1, [data_seg, #offset_a]
        cmp r1, #2
@@ -74,15 +75,19 @@ loopC:
        cmp r3, #2
        bxeq lr
       
-       
+       //load our variables after each printf to insure proper order
        add r0, data_seg, #offset_values
        bl printf
        ldr r1, [data_seg, #offset_a]
        ldr r2, [data_seg, #offset_b]
        ldr r3, [data_seg, #offset_c]
        
-       bl doWork
+       bl truth
        
+       
+       mov r1, r4
+       mov r2, r5
+       mov r3, r6
        add r0, data_seg, #offset_results
        bl printf
        ldr r1, [data_seg, #offset_a]
@@ -96,10 +101,19 @@ loopC:
        beq loopB
        b loopC
        
-doWork:
-       mov r1, #0
-       mov r2, #0
-       mov r3, #0
+truth:
+       //mov r1, #0
+       //mov r2, #0
+       //mov r3, #0
+       and r4, r1, r2
+       and r4, r4, r3
+       
+       orr r5, r1, r2
+       orr r5, r5, r3
+       
+       orr r6, r1, r2
+       and r6, r6, r3
+       
        bx lr
        
     
