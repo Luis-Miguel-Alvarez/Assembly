@@ -64,7 +64,7 @@ loopB:
        mov r3, #0
        str r3, [data_seg, #offset_c]
        
-       b loopB
+       b loopC
 
 
 loopC:
