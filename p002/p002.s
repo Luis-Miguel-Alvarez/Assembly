@@ -61,8 +61,6 @@ loopB:
  
        bl loopC
        
-       add r0, data_seg, #offset_top 
-       
        add r2, r2, #1
        str r2, [data_seg, #offset_b]
        mov r3, #0
@@ -74,8 +72,8 @@ loopB:
 loopC:
        ldr r3, [data_seg, #offset_c]
        cmp r3, #2
-       bxeq lr
-       b elseC
+       bge elseC
+       bx lr
 
 elseC:
        //bl printLoop
