@@ -97,7 +97,7 @@ loopC:
        beq loopB
        b loopC
        
-printLoop:
+printValues:
        add r0, data_seg, #offset_values
        
        //str r1, [data_seg, #offset_a]
