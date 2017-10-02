@@ -18,7 +18,7 @@ a:     .word 0
 b:     .word 0
 c:     .word 0
 top:   .asciz "| a | b | c | a&b&c | a|b|c | a|b&c |\n"
-values: .asciz "| %d | %d | %d \n"
+values: .asciz "| %d | %d | %d "
 results: .asciz "|   %d   |   %d   |   %d   |\n"
        .set offset_a , a - base  
        .set offset_b , b - base
@@ -75,15 +75,14 @@ loopC:
        cmp r3, #2
        bxeq lr
       
-       //bl printValues
+       bl printValues
        
        
-       add r0, data_seg, #offset_values
-       bl printf
-       bl printResults
-       ldr r1, [data_seg, #offset_a]
-       ldr r2, [data_seg, #offset_b]
-       ldr r3, [data_seg, #offset_c]
+       //add r0, data_seg, #offset_values
+       //bl printf
+       //ldr r1, [data_seg, #offset_a]
+       //ldr r2, [data_seg, #offset_b]
+       //ldr r3, [data_seg, #offset_c]
        
        
             
@@ -95,14 +94,11 @@ loopC:
        b loopC
        
 printValues:
-       add r0, data_seg, #offset_values
-       
+       add r0, data_seg, #offset_values       
        //str r1, [data_seg, #offset_a]
        //str r2, [data_seg, #offset_b]
        //str r3, [data_seg, #offset_c]
-       
        bl printf
-       
        ldr r1, [data_seg, #offset_a]
        ldr r2, [data_seg, #offset_b]
        ldr r3, [data_seg, #offset_c]
