@@ -81,7 +81,7 @@ loopC:
        ldr r2, [data_seg, #offset_b]
        ldr r3, [data_seg, #offset_c]
        
-       bl doWork
+       //bl doWork
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
