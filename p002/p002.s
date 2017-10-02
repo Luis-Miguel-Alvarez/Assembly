@@ -61,6 +61,8 @@ loopB:
  
        bl loopC
        
+       add r0, data_seg, #offset_top 
+       
        add r2, r2, #1
        str r2, [data_seg, #offset_b]
        mov r3, #0
