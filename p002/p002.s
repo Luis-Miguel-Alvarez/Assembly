@@ -17,7 +17,7 @@ a:     .word 0
 b:     .word 0
 c:     .word 0
 top:   .asciz "| a | b | c | a&b&c | a|b|c | a|b&c |\n"
-values: .asciz "| %d | %d | %d "
+values: .asciz "| %d | %d | %d \n"
 results: .asciz "|   %d   |   %d   |   %d   |\n"
        .set offset_a , a - base  
        .set offset_b , b - base
@@ -77,11 +77,11 @@ loopC:
        
        add r0, data_seg, #offset_values
        bl printf
-       ldr r1, [data_seg, #offset_a]
-       ldr r2, [data_seg, #offset_b]
-       ldr r3, [data_seg, #offset_c]
+       //ldr r1, [data_seg, #offset_a]
+       //ldr r2, [data_seg, #offset_b]
+       //ldr r3, [data_seg, #offset_c]
        
-       bl doWork
+       //bl doWork
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
