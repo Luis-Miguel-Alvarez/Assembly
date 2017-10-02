@@ -56,7 +56,11 @@ loopB:
        ldr r2, [data_seg, #offset_b]
        cmp r2, #2
        bxeq lr 
- 
+       
+       
+       
+              add r0, data_seg, #offset_values
+              bl printf
        bl loopC
        
        add r2, r2, #1

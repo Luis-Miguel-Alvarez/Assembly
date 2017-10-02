@@ -68,7 +68,7 @@ loopB:
 
 
 loopC:
-       ldr r3, #2
+       mov r3, #2
        cmp r3, #2
        bne elseC
        
