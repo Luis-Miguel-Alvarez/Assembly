@@ -68,7 +68,7 @@ loopB:
 
 
 loopC:
-       mov r3, #2
+       ldr r3, [data_seg, #offset_c]
        cmp r3, #2
        bne elseC
        
