@@ -75,7 +75,8 @@ loopC:
        cmp r3, #2
        bxeq lr
       
-       //bl printLoop
+       bl printLoop
+       /*
        add r0, data_seg, #offset_values
        str r1, [data_seg, #offset_a]
        str r2, [data_seg, #offset_b]
@@ -86,7 +87,7 @@ loopC:
        ldr r1, [data_seg, #offset_a]
        ldr r2, [data_seg, #offset_b]
        ldr r3, [data_seg, #offset_c]
-       
+       */
             
        
        add r3, r3, #1
