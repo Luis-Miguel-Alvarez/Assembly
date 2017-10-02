@@ -46,10 +46,10 @@ loopA:
        
        add r1, r1, #1
        str r1, [data_seg, #offset_a]
-       //mov r2, #0
-       //str r2, [data_seg, #offset_b]
-       //mov r3, #0
-       //str r3, [data_seg, #offset_c]
+       mov r2, #0
+       str r2, [data_seg, #offset_b]
+       mov r3, #0
+       str r3, [data_seg, #offset_c]
        
        b loopA
 
@@ -57,23 +57,10 @@ loopA:
 loopB:
        ldr r2, [data_seg, #offset_b]
        cmp r2, #2
-       bne elseB
-       bx lr 
- 
+       bleq xl 
+       
        bl loopC
-       
-elseB:       
-       add r0, data_seg, #offset_values
-       //str r1, [data_seg, #offset_a]
-       //str r2, [data_seg, #offset_b]
-       
-       //bl printf
-       
-      // ldr r1, [data_seg, #offset_a]
-       //ldr r2, [data_seg, #offset_b]
-       
-       
-       
+      
        add r2, r2, #1
        str r2, [data_seg, #offset_b]
        mov r3, #0
@@ -86,10 +73,8 @@ elseB:
 loopC:
        ldr r3, [data_seg, #offset_c]
        cmp r3, #2
-       bne elseC
-       bx lr
-
-elseC:
+       bxeq lr
+      
        //bl printLoop
        add r0, data_seg, #offset_values
        str r1, [data_seg, #offset_a]
@@ -102,8 +87,7 @@ elseC:
        ldr r2, [data_seg, #offset_b]
        ldr r3, [data_seg, #offset_c]
        
-       
-       
+            
        
        add r3, r3, #1
        str r3, [data_seg, #offset_c]
