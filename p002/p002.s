@@ -75,20 +75,15 @@ loopC:
        cmp r3, #2
        bxeq lr
       
-       bl printValues
+       //bl printValues
        //bl printResults
-       /*
+       
        add r0, data_seg, #offset_values
-       str r1, [data_seg, #offset_a]
-       str r2, [data_seg, #offset_b]
-       str r3, [data_seg, #offset_c]
-       
        bl printf
-       
        ldr r1, [data_seg, #offset_a]
        ldr r2, [data_seg, #offset_b]
        ldr r3, [data_seg, #offset_c]
-       */
+       
             
        
        add r3, r3, #1
@@ -100,9 +95,9 @@ loopC:
 printValues:
        add r0, data_seg, #offset_values
        
-       str r1, [data_seg, #offset_a]
-       str r2, [data_seg, #offset_b]
-       str r3, [data_seg, #offset_c]
+       //str r1, [data_seg, #offset_a]
+       //str r2, [data_seg, #offset_b]
+       //str r3, [data_seg, #offset_c]
        
        bl printf
        
@@ -112,9 +107,9 @@ printValues:
       
        bx lr
        
-//printResults:
-  //     add r0, data_seg, #offset_results
-    //   bl printf
+printResults:
+       add r0, data_seg, #offset_results
+       bl printf
        
     
 exit:
